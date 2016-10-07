@@ -46,10 +46,10 @@ router.get('/usercards/:id', usersController.detail)
 /*
 ================ Transactions API ================
 */
-router.post('/trxs', usercardsController.insert)
-router.get('/trxs', usercardsController.display)
-router.put('/trxs/:id', usercardsController.update)
-router.delete('/trxs/:id', usercardsController.hapus)
-router.get('/trxs/:id', usercardsController.detail)
+router.post('/trxs', trxsController.insert)
+router.get('/trxs', trxsController.display)
+router.put('/trxs/:id', trxsController.update)
+router.delete('/trxs/:id', trxsController.hapus)
+router.get('/trxs/:id', trxsController.detail)
 
 module.exports = router

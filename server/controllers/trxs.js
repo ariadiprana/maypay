@@ -1,13 +1,15 @@
 /*
         refNo:String,
+        role:String,
         lenderId:String,
         userId:String,
         status:String,
         cardId:String,
         productName:String,
         location:String,
-        mayPymt:Integer,
+        maxPymt:Integer,
         realPymt:Integer,
+        profit:Integer
         lenderPhone:String,
         lenderRating:Integer,
         lenderTotTrx:Integer,
@@ -31,14 +33,16 @@ function insert(req,res,next){
 
     var items = new Orders({
       refNo:req.body.refNo,
+      role:req.body.role,
       lenderId:req.body.lenderId,
       userId:req.body.userId,
       status:req.body.status,
       cardId:req.body.cardId,
       productName:req.body.productName,
       location:req.body.location,
-      mayPymt:req.body.mayPymt,
+      maxPymt:req.body.maxPymt,
       realPymt:req.body.realPymt,
+      profit:req.body.profit,
       lenderPhone:req.body.lenderPhone,
       lenderRating:req.body.lenderRating,
       lenderTotTrx:req.body.lenderTotTrx,
@@ -64,8 +68,9 @@ function update(req,res,next){
       items.cardId = req.body.cardId
       items.productName = req.body.productName
       items.location = req.body.location
-      items.mayPymt = req.body.mayPymt
+      items.maxPymt = req.body.maxPymt
       items.realPymt = req.body.realPymt
+      items.profit = req.body.profit
       items.lenderPhone = req.body.lenderPhone
       items.lenderRating = req.body.lenderRating
       items.lenderTotTrx = req.body.lenderTotTrx

@@ -51,6 +51,7 @@ Property :
 - location : String
 - mayPymt : Number
 - realPymt : Number
+- profit : Number
 - lenderPhone : String
 - lenderRating : Number
 - lenderTotTrx : Number

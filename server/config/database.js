@@ -1,4 +1,5 @@
 // config/database.js
 module.exports = {
-    'url' : 'mongodb://localhost/maypay' // looks like mongodb://<user>:<pass>@mongo.onmodulus.net:27017/Mikha4ot
+    'url' : 'mongodb://ari:password@ds053196.mlab.com:53196/maypayapi'
+
 };

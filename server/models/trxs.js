@@ -3,14 +3,16 @@ var Schema = mongoose.Schema;
 
 var trxSchema = mongoose.Schema({
     refNo:String,
+    role:String,
     lenderId:String,
     userId:String,
     status:String,
     cardId:String,
     productName:String,
     location:String,
-    mayPymt:Number,
+    maxPymt:Number,
     realPymt:Number,
+    profit:Number,
     lenderPhone:String,
     lenderRating:Number,
     lenderTotTrx:Number,
