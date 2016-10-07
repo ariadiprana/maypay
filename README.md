@@ -16,53 +16,97 @@ Server only
 ## Data
 | Model | Description
 |------|----
-| customers | this is to represent all customers for log in purposes
-| orders | this is to represent each order inside the application
+| cards | this is master data for cards
+| trxs | this is transactions record
+| usercards | this is collections to connect user and his/her personal cards
+| users | Master all users account
 ----------------------------------------------------
 
 ## Server
 
-### Cards
+### - Cards
 Property :
 - bankName : String
 - type : String
-- class : String
-- dt_created : Date
+- cardClass : String
+- dtCreated : Date
 
 |Endpoint|HTTP|Description
 |--------|----|-----------
-|/api/cards|GET|return card detail in JSON
+|/api/cards|GET|return all cards in JSON
+|/api/cards/:id|GET|return card detail
 |/api/cards|POST| add new master cards
 |/api/cards/:id|PUT|update cards
 |/api/cards/:id|DEL|delete existing cards
 
 
-### Orders
+### - Trxs
 Property :
-- hairStyleId     :String,
-- barberName      :String,
-- address         :String,
-- dt_created      :Date,
-- customerId      :String,
-- status          :String,
-- hairPreference  :String
+- refNo : String
+- lenderId : String
+- userId : String
+- status : String
+- cardId : String
+- productName : String
+- location : String
+- mayPymt : Number
+- realPymt : Number
+- lenderPhone : String
+- lenderRating : Number
+- lenderTotTrx : Number
+- UserPhone : String
+- UserRating : Number
+- UserTotTrx : Number
+- dtCreated : Date
 
 |Endpoint|HTTP|Description
 |--------|----|-----------
-|/api/orders|GET|return all orders in JSON
-|/api/orders|POST|add new orders
-|/api/orders/:id|PUT|update orders
-|/api/orders/:id|DEL|delete existing order
+|/api/trxs|GET|return all trxs in JSON
+|/api/trxs/:id|GET|return trx detail
+|/api/trxs|POST| add new trx
+|/api/trxs/:id|PUT|update trx
+|/api/trxs/:id|DEL|delete existing trx
+
+
+### - UserCards
+Property :
+- userId : String
+- cardId : String
+- isActive : Boolean
+- dtCreated : Date
+
+|Endpoint|HTTP|Description
+|--------|----|-----------
+|/api/usercards|GET|return all usercards in JSON
+|/api/usercards/:id|GET|return usercards detail
+|/api/usercards|POST| add new usercards
+|/api/usercards/:id|PUT|update usercards
+|/api/usercards/:id|DEL|delete existing usercards
+
+
+### - Users
+Property :
+- username : String
+- password : String
+- firstName : String
+- lastName : String
+- email : String
+- phoneNo : String
+- lenderRating : Number
+- lenderTotTrx : Number
+- userRating : Number
+- userTotTrx : Number
+
+|Endpoint|HTTP|Description
+|--------|----|-----------
+|/api/users|GET|return all user in JSON
+|/api/users/:id|GET|return user detail
+|/api/users|POST| add new user
+|/api/users/:id|PUT|update user
+|/api/users/:id|DEL|delete existing user
 
 - - -
 
-## Client
-- home
-- items
-  - id
-- customers
-  - profile
-- carts
 
 -------------------------------
 
