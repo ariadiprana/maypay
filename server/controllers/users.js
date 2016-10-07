@@ -1,0 +1,89 @@
+/*
+      username:String,
+      password:String,
+      firstName:String,
+      lastName:String,
+      email:String,
+      phoneNo:String,
+      lenderRating:Number,
+      lenderTotTrx:Number,
+      UserRating:Number,
+      UserTotTrx:Number
+*/
+var Users = require('../models/users')
+
+module.exports = {
+  insert: insert,
+  display: display,
+  update:update,
+  hapus:hapus,
+  detail:detail
+}
+
+function insert(req,res,next){
+    var items = new Users({
+      username:req.body.username,
+      password:req.body.password,
+      firstName:req.body.firstName,
+      lastName:req.body.lastName,
+      email:req.body.email,
+      phoneNo:req.body.phoneNo,
+      lenderRating:req.body.lenderRating,
+      lenderTotTrx:req.body.lenderTotTrx,
+      userRating:req.body.userRating,
+      userTotTrx:req.body.userTotTrx,
+      dtCreated:new Date()
+    })
+    items.save()
+    res.json(items)
+}
+
+function update(req,res,next){
+  Users.findOne({
+    _id:req.params.id
+  },(err,items) => {
+      items.username = req.body.username
+      items.password = req.body.password
+      items.firstName = req.body.firstName
+      items.lastName = req.body.lastName
+      items.email = req.body.email
+      items.phoneNo = req.body.phoneNo
+      items.lenderRating = req.body.lenderRating
+      items.lenderTotTrx = req.body.lenderTotTrx
+      items.userRating = req.body.userRating
+      items.userTotTrx = req.body.userTotTrx
+      items.dtCreated = new Date()
+
+      items.save((err)=> {
+        if(err) throw err
+        res.json(items)
+      })
+  })
+}
+
+function hapus(req,res,next){
+  Users.findOne({
+    _id:req.params.id
+  },(err,items) => {
+      if(err)throw err
+
+      items.remove((err)=> {
+        if(err) throw err
+        res.json(items)
+      })
+  })
+}
+
+function display(req,res,next){
+    Users.find({},(err,result) => {
+          res.json(result)
+    })
+}
+
+function detail(req,res,next){
+    Users.findOne({
+      _id:req.params.id
+    },(err,result) => {
+          res.json(result)
+    })
+}
